@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package example;
+
+option java_package = "example.proto.user";
+option java_outer_classname = "UserDefProto";
+
+message UserDefinition {
+	string userName = 1;
+	int32 id = 2;
+	string email = 3;
+	string phoneNum = 4;
+}
+
+message UserDefinitionList {
+	repeated UserDefinition userDefinitions = 1;
+}
