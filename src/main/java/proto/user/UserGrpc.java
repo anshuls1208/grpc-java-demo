@@ -1,4 +1,4 @@
-package example.proto.service;
+package proto.user;
 
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 import static io.grpc.stub.ClientCalls.asyncBidiStreamingCall;
@@ -22,39 +22,39 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.15.0)",
-    comments = "Source: user_service.proto")
-public final class UserServiceGrpc {
+    comments = "Source: user_definition.proto")
+public final class UserGrpc {
 
-  private UserServiceGrpc() {}
+  private UserGrpc() {}
 
-  public static final String SERVICE_NAME = "example.UserService";
+  public static final String SERVICE_NAME = "example.User";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<example.proto.service.UserServiceProto.UserRequest,
-      example.proto.service.UserServiceProto.UserResponse> getReadUserMethod;
+  private static volatile io.grpc.MethodDescriptor<proto.user.UserDefProto.UserRequest,
+      proto.user.UserDefProto.UserDefinition> getReadUserMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "ReadUser",
-      requestType = example.proto.service.UserServiceProto.UserRequest.class,
-      responseType = example.proto.service.UserServiceProto.UserResponse.class,
+      requestType = proto.user.UserDefProto.UserRequest.class,
+      responseType = proto.user.UserDefProto.UserDefinition.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<example.proto.service.UserServiceProto.UserRequest,
-      example.proto.service.UserServiceProto.UserResponse> getReadUserMethod() {
-    io.grpc.MethodDescriptor<example.proto.service.UserServiceProto.UserRequest, example.proto.service.UserServiceProto.UserResponse> getReadUserMethod;
-    if ((getReadUserMethod = UserServiceGrpc.getReadUserMethod) == null) {
-      synchronized (UserServiceGrpc.class) {
-        if ((getReadUserMethod = UserServiceGrpc.getReadUserMethod) == null) {
-          UserServiceGrpc.getReadUserMethod = getReadUserMethod = 
-              io.grpc.MethodDescriptor.<example.proto.service.UserServiceProto.UserRequest, example.proto.service.UserServiceProto.UserResponse>newBuilder()
+  public static io.grpc.MethodDescriptor<proto.user.UserDefProto.UserRequest,
+      proto.user.UserDefProto.UserDefinition> getReadUserMethod() {
+    io.grpc.MethodDescriptor<proto.user.UserDefProto.UserRequest, proto.user.UserDefProto.UserDefinition> getReadUserMethod;
+    if ((getReadUserMethod = UserGrpc.getReadUserMethod) == null) {
+      synchronized (UserGrpc.class) {
+        if ((getReadUserMethod = UserGrpc.getReadUserMethod) == null) {
+          UserGrpc.getReadUserMethod = getReadUserMethod = 
+              io.grpc.MethodDescriptor.<proto.user.UserDefProto.UserRequest, proto.user.UserDefProto.UserDefinition>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "example.UserService", "ReadUser"))
+                  "example.User", "ReadUser"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  example.proto.service.UserServiceProto.UserRequest.getDefaultInstance()))
+                  proto.user.UserDefProto.UserRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  example.proto.service.UserServiceProto.UserResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("ReadUser"))
+                  proto.user.UserDefProto.UserDefinition.getDefaultInstance()))
+                  .setSchemaDescriptor(new UserMethodDescriptorSupplier("ReadUser"))
                   .build();
           }
         }
@@ -65,24 +65,24 @@ public final class UserServiceGrpc {
   /**
    * Creates a new async stub that supports all call types for the service
    */
-  public static UserServiceStub newStub(io.grpc.Channel channel) {
-    return new UserServiceStub(channel);
+  public static UserStub newStub(io.grpc.Channel channel) {
+    return new UserStub(channel);
   }
 
   /**
    * Creates a new blocking-style stub that supports unary and streaming output calls on the service
    */
-  public static UserServiceBlockingStub newBlockingStub(
+  public static UserBlockingStub newBlockingStub(
       io.grpc.Channel channel) {
-    return new UserServiceBlockingStub(channel);
+    return new UserBlockingStub(channel);
   }
 
   /**
    * Creates a new ListenableFuture-style stub that supports unary calls on the service
    */
-  public static UserServiceFutureStub newFutureStub(
+  public static UserFutureStub newFutureStub(
       io.grpc.Channel channel) {
-    return new UserServiceFutureStub(channel);
+    return new UserFutureStub(channel);
   }
 
   /**
@@ -90,12 +90,12 @@ public final class UserServiceGrpc {
    * sample user service
    * </pre>
    */
-  public static abstract class UserServiceImplBase implements io.grpc.BindableService {
+  public static abstract class UserImplBase implements io.grpc.BindableService {
 
     /**
      */
-    public void readUser(example.proto.service.UserServiceProto.UserRequest request,
-        io.grpc.stub.StreamObserver<example.proto.service.UserServiceProto.UserResponse> responseObserver) {
+    public void readUser(proto.user.UserDefProto.UserRequest request,
+        io.grpc.stub.StreamObserver<proto.user.UserDefProto.UserDefinition> responseObserver) {
       asyncUnimplementedUnaryCall(getReadUserMethod(), responseObserver);
     }
 
@@ -105,8 +105,8 @@ public final class UserServiceGrpc {
             getReadUserMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                example.proto.service.UserServiceProto.UserRequest,
-                example.proto.service.UserServiceProto.UserResponse>(
+                proto.user.UserDefProto.UserRequest,
+                proto.user.UserDefProto.UserDefinition>(
                   this, METHODID_READ_USER)))
           .build();
     }
@@ -117,26 +117,26 @@ public final class UserServiceGrpc {
    * sample user service
    * </pre>
    */
-  public static final class UserServiceStub extends io.grpc.stub.AbstractStub<UserServiceStub> {
-    private UserServiceStub(io.grpc.Channel channel) {
+  public static final class UserStub extends io.grpc.stub.AbstractStub<UserStub> {
+    private UserStub(io.grpc.Channel channel) {
       super(channel);
     }
 
-    private UserServiceStub(io.grpc.Channel channel,
+    private UserStub(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected UserServiceStub build(io.grpc.Channel channel,
+    protected UserStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
-      return new UserServiceStub(channel, callOptions);
+      return new UserStub(channel, callOptions);
     }
 
     /**
      */
-    public void readUser(example.proto.service.UserServiceProto.UserRequest request,
-        io.grpc.stub.StreamObserver<example.proto.service.UserServiceProto.UserResponse> responseObserver) {
+    public void readUser(proto.user.UserDefProto.UserRequest request,
+        io.grpc.stub.StreamObserver<proto.user.UserDefProto.UserDefinition> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getReadUserMethod(), getCallOptions()), request, responseObserver);
     }
@@ -147,25 +147,25 @@ public final class UserServiceGrpc {
    * sample user service
    * </pre>
    */
-  public static final class UserServiceBlockingStub extends io.grpc.stub.AbstractStub<UserServiceBlockingStub> {
-    private UserServiceBlockingStub(io.grpc.Channel channel) {
+  public static final class UserBlockingStub extends io.grpc.stub.AbstractStub<UserBlockingStub> {
+    private UserBlockingStub(io.grpc.Channel channel) {
       super(channel);
     }
 
-    private UserServiceBlockingStub(io.grpc.Channel channel,
+    private UserBlockingStub(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected UserServiceBlockingStub build(io.grpc.Channel channel,
+    protected UserBlockingStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
-      return new UserServiceBlockingStub(channel, callOptions);
+      return new UserBlockingStub(channel, callOptions);
     }
 
     /**
      */
-    public example.proto.service.UserServiceProto.UserResponse readUser(example.proto.service.UserServiceProto.UserRequest request) {
+    public proto.user.UserDefProto.UserDefinition readUser(proto.user.UserDefProto.UserRequest request) {
       return blockingUnaryCall(
           getChannel(), getReadUserMethod(), getCallOptions(), request);
     }
@@ -176,26 +176,26 @@ public final class UserServiceGrpc {
    * sample user service
    * </pre>
    */
-  public static final class UserServiceFutureStub extends io.grpc.stub.AbstractStub<UserServiceFutureStub> {
-    private UserServiceFutureStub(io.grpc.Channel channel) {
+  public static final class UserFutureStub extends io.grpc.stub.AbstractStub<UserFutureStub> {
+    private UserFutureStub(io.grpc.Channel channel) {
       super(channel);
     }
 
-    private UserServiceFutureStub(io.grpc.Channel channel,
+    private UserFutureStub(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected UserServiceFutureStub build(io.grpc.Channel channel,
+    protected UserFutureStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
-      return new UserServiceFutureStub(channel, callOptions);
+      return new UserFutureStub(channel, callOptions);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<example.proto.service.UserServiceProto.UserResponse> readUser(
-        example.proto.service.UserServiceProto.UserRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<proto.user.UserDefProto.UserDefinition> readUser(
+        proto.user.UserDefProto.UserRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getReadUserMethod(), getCallOptions()), request);
     }
@@ -208,10 +208,10 @@ public final class UserServiceGrpc {
       io.grpc.stub.ServerCalls.ServerStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.ClientStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.BidiStreamingMethod<Req, Resp> {
-    private final UserServiceImplBase serviceImpl;
+    private final UserImplBase serviceImpl;
     private final int methodId;
 
-    MethodHandlers(UserServiceImplBase serviceImpl, int methodId) {
+    MethodHandlers(UserImplBase serviceImpl, int methodId) {
       this.serviceImpl = serviceImpl;
       this.methodId = methodId;
     }
@@ -221,8 +221,8 @@ public final class UserServiceGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_READ_USER:
-          serviceImpl.readUser((example.proto.service.UserServiceProto.UserRequest) request,
-              (io.grpc.stub.StreamObserver<example.proto.service.UserServiceProto.UserResponse>) responseObserver);
+          serviceImpl.readUser((proto.user.UserDefProto.UserRequest) request,
+              (io.grpc.stub.StreamObserver<proto.user.UserDefProto.UserDefinition>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -240,32 +240,32 @@ public final class UserServiceGrpc {
     }
   }
 
-  private static abstract class UserServiceBaseDescriptorSupplier
+  private static abstract class UserBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoFileDescriptorSupplier, io.grpc.protobuf.ProtoServiceDescriptorSupplier {
-    UserServiceBaseDescriptorSupplier() {}
+    UserBaseDescriptorSupplier() {}
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return example.proto.service.UserServiceProto.getDescriptor();
+      return proto.user.UserDefProto.getDescriptor();
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.ServiceDescriptor getServiceDescriptor() {
-      return getFileDescriptor().findServiceByName("UserService");
+      return getFileDescriptor().findServiceByName("User");
     }
   }
 
-  private static final class UserServiceFileDescriptorSupplier
-      extends UserServiceBaseDescriptorSupplier {
-    UserServiceFileDescriptorSupplier() {}
+  private static final class UserFileDescriptorSupplier
+      extends UserBaseDescriptorSupplier {
+    UserFileDescriptorSupplier() {}
   }
 
-  private static final class UserServiceMethodDescriptorSupplier
-      extends UserServiceBaseDescriptorSupplier
+  private static final class UserMethodDescriptorSupplier
+      extends UserBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoMethodDescriptorSupplier {
     private final String methodName;
 
-    UserServiceMethodDescriptorSupplier(String methodName) {
+    UserMethodDescriptorSupplier(String methodName) {
       this.methodName = methodName;
     }
 
@@ -280,11 +280,11 @@ public final class UserServiceGrpc {
   public static io.grpc.ServiceDescriptor getServiceDescriptor() {
     io.grpc.ServiceDescriptor result = serviceDescriptor;
     if (result == null) {
-      synchronized (UserServiceGrpc.class) {
+      synchronized (UserGrpc.class) {
         result = serviceDescriptor;
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
-              .setSchemaDescriptor(new UserServiceFileDescriptorSupplier())
+              .setSchemaDescriptor(new UserFileDescriptorSupplier())
               .addMethod(getReadUserMethod())
               .build();
         }

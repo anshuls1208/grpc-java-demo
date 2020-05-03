@@ -1,6 +1,6 @@
 package example;
 
-import example.proto.user.UserDefProto;
+import proto.user.UserDefProto;
 
 import java.util.Random;
 import java.util.stream.IntStream;

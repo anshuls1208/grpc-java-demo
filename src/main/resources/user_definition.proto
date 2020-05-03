@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package example;
 
-option java_package = "example.proto.user";
+option java_package = "proto.user";
 option java_outer_classname = "UserDefProto";
 
 message UserDefinition {
@@ -14,4 +14,14 @@ message UserDefinition {
 
 message UserDefinitionList {
 	repeated UserDefinition userDefinitions = 1;
+}
+
+// sample user service
+service User {
+	rpc ReadUser(UserRequest) returns (UserDefinition);
+}
+
+// user request
+message UserRequest {
+	int32 id = 1;
 }
