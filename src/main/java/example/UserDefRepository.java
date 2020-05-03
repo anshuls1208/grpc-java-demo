@@ -2,24 +2,31 @@ package example;
 
 import proto.user.UserDefProto;
 
-import java.util.Random;
 import java.util.stream.IntStream;
 
-public class TestProtoBuf {
+public class UserDefRepository {
 
     private static UserDefProto.UserDefinitionList userDefinitions;
 
-    static void readUser(int userId) {
+    static {
+        writeUser();
+    }
+
+    public static UserDefProto.UserDefinition readUser(int userId) {
+
+        UserDefProto.UserDefinition userDefinition = null;
 
         // inInitialized denotes if all the required fields have been set or not
         if (userDefinitions != null && userDefinitions.isInitialized()) {
-            UserDefProto.UserDefinition userDefinition = userDefinitions.getUserDefinitions(userId);
+            userDefinition = userDefinitions.getUserDefinitions(userId);
             System.out.println(userDefinition != null ? userDefinition.toString() : "USER_NOT_FOUND");
         }
 
+        return userDefinition;
+
     }
 
-    static void writeUser() {
+    public static void writeUser() {
 
         UserDefProto.UserDefinitionList.Builder listBuilder = UserDefProto.UserDefinitionList.newBuilder();
 
@@ -46,14 +53,6 @@ public class TestProtoBuf {
         });
 
         userDefinitions = listBuilder.build();
-    }
-
-    public static void main(String[] args) {
-        System.out.println("java.version: " + System.getProperty("java.version"));
-
-        writeUser();
-
-        readUser(new Random().nextInt(10));
     }
 
 }
